@@ -1,0 +1,20 @@
+{
+  "name": "m.zaitoune/php-mvc",
+  "description": "A minimal PHP MVC framework with routing and middleware support.",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "MZaitoune\\PhpMvc\\": "src/",
+      "Controller\\": "Controller/",
+      "Model\\": "Model/",
+      "Middleware\\": "middleware/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mohamed zaitoune",
+      "email": "mohamedztn37@gmail.com"
+    }
+  ],
+  "require": {}
+}

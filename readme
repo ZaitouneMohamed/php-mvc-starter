@@ -1,0 +1,27 @@
+# PHP MVC Starter
+
+A lightweight custom PHP MVC framework built from scratch, featuring:
+
+- Simple routing (GET & POST)
+- Controller and view separation
+- Basic validation with error handling
+- Minimal dependencies
+- Great for learning or small-scale applications
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- PHP 8.0 or higher
+- MySQL (optional, for database usage)
+- A local server (e.g. [XAMPP](https://www.apachefriends.org/) ....)
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/php-mvc-starter.git
+cd php-mvc-starter
