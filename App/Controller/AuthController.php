@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Controller;
+namespace App\Controller;
 
 use Config\ValidationException;
-use Model\User;
+use App\Model\User;
 
-class AuthController
+final class AuthController
 {
     public static function login()
     {

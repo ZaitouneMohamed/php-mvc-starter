@@ -1,5 +1,7 @@
 <?php
 
+use Dotenv\Dotenv;
+
 $config = require_once __DIR__ . '/config/database.php';
 function getPDOConnection(array $config)
 {
@@ -38,3 +40,7 @@ function isRoute($route)
     $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     return $currentPath === $route;
 }
+
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/');
+$dotenv->load();

@@ -21,12 +21,6 @@
           <li class="nav-item">
             <a class="nav-link <?= isRoute('/') ? 'active' : '0' ?> " href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link <?= isRoute('/about') ? 'active' : '0' ?>" href="/about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?= isRoute('/mails') ? 'active' : '0' ?>" href="mails">mail</a>
-          </li>
         </ul>
       </div>
     </div>

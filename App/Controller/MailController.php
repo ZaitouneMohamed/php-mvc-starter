@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Controller;
+namespace App\Controller;
 use Config\ValidationException;
-use Model\Mail as MailModel;
+use App\Model\Mail as MailModel;
 
 final class MailController
 {

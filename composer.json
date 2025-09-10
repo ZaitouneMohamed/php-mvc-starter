@@ -4,17 +4,17 @@
   "type": "project",
   "autoload": {
     "psr-4": {
-      "MZaitoune\\PhpMvc\\": "src/",
-      "Controller\\": "Controller/",
-      "Model\\": "Model/",
-      "Middleware\\": "middleware/"
+      "App\\": "App/",
+      "Facades\\": "Facades/"
     }
   },
   "authors": [
     {
       "name": "mohamed zaitoune",
-      "email": "mohamedztn37@gmail.com"
+      "email": "mohamedztn3@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "vlucas/phpdotenv": "^5.6"
+  }
 }

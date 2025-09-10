@@ -10,6 +10,7 @@ if (!function_exists('view')) {
             extract($data); 
             require $path;
         } else {
+            
             echo "View '$path' not found.";
         }
     }
