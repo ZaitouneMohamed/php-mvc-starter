@@ -5,7 +5,8 @@
   "autoload": {
     "psr-4": {
       "App\\": "App/",
-      "Facades\\": "Facades/"
+      "Facades\\": "Facades/",
+      "Config\\": "config/"
     }
   },
   "authors": [

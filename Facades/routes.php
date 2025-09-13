@@ -51,6 +51,12 @@ class Route
     {
         if (is_string($callback)) {
             call_user_func($callback);
+        } elseif (is_array($callback) && count($callback) === 2) {
+            $class = new $callback[0]();
+
+            if (method_exists($class, "handle")) {
+                $class->handle();
+            }
         }
         
     }

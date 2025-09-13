@@ -2,6 +2,7 @@
 
 use App\Controller\AboutController;
 use App\Controller\HomeController;
+use App\Middleware\AuthMiddleware;
 
 //use Facades\Route;
 

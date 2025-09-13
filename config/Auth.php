@@ -1,5 +1,7 @@
 <?php 
 
+namespace Config;
+
 class Auth 
 {
     public function Attempt($user, $duration, $key)
@@ -12,6 +14,11 @@ class Auth
             return true;
         }
         return false;
+    }
+
+    public static function check($key)
+    {
+        return isset($_SESSION[$key]);
     }
   
 }
