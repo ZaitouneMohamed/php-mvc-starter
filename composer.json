@@ -6,7 +6,7 @@
     "psr-4": {
       "App\\": "App/",
       "Facades\\": "Facades/",
-      "Config\\": "config/"
+      "Base\\": "Base/"
     }
   },
   "authors": [

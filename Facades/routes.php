@@ -6,16 +6,31 @@ class Route
 {
     private static array $routes = [];
 
-    public static function get(string $path, string|array $callback): void
+    private static bool $middlewareIsCalled = false;
+
+    private static $path = '';
+
+    public static function get(string $path, string|array $callback): self
     {
+        self::$path = $path;
+
+        if (!isset(self::$routes['GET'][$path])) {
+            self::$routes['GET'][$path] = [];
+        }
+
         self::$routes['GET'][$path] = $callback;
+
+        if (self::$middlewareIsCalled) {
+            self::$routes['GET'][$path]["middlewareIsCalled"] = true;
+        }
+        
+        return new self();
     }
 
     public static function dispatch(): void
     {
         $method = $_GET['_method'] ?? $_SERVER['REQUEST_METHOD'];
         $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
 
         if (!isset(self::$routes[$method][$currentPath])) {
             self::handleNotFound();
@@ -26,7 +41,7 @@ class Route
 
         if (is_string($callback)) {
             call_user_func($callback);
-        } elseif (is_array($callback) && count($callback) === 2) {
+        } elseif (is_array($callback) && count($callback) >= 2) {
             $controller = new $callback[0]();
             $method = $callback[1];
 
@@ -46,21 +61,24 @@ class Route
     }
 
 
-
-    public function middleware(string|array $callback): void
+    public function middleware(string $callback): void
     {
-        if (is_string($callback)) {
-            call_user_func($callback);
-        } elseif (is_array($callback) && count($callback) === 2) {
-            $class = new $callback[0]();
+        self::$middlewareIsCalled = true;
 
-            if (method_exists($class, "handle")) {
-                $class->handle();
+        $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+       // echo $currentPath . "<br>";
+
+        if ($currentPath == self::$path) {
+            # code...
+            if (is_string($callback)) {
+                $middleware = new $callback();
+                if (method_exists($middleware, "handle")) {
+                    $middleware->handle();
+                }
             }
         }
-        
     }
-
 
     private static function methodNotAllowed(string $notAllowedMethod , string $allowedMethod): void
     {

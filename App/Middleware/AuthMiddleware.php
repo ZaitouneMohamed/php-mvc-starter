@@ -2,14 +2,14 @@
 
 namespace App\Middleware;
 
-use Config\Auth;
+use Facades\Auth;
 
 class AuthMiddleware
 {
     public function handle()
     {
         if (!Auth::check('user')) {
-            echo "Access denied. Please log in.";
+            echo "Access denied. Please log in. <br />";
             // User is not authenticated, redirect to login or show error
             //header('Location: /login');
             //exit();

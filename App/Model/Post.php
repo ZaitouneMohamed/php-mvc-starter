@@ -2,16 +2,9 @@
 
 namespace App\Model;
 
-use PDO;
+use Base\Model;
 
-class Post 
+final class Post extends Model
 {
-
-    public static function getAllData()
-    {
-        $pdo = $GLOBALS['pdo'];
-        $stmt = $pdo->query("SELECT posts.* , users.username as username FROM posts join users on posts.user_id = users.id");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    
+    // You can add Post-specific methods here if needed  
 }

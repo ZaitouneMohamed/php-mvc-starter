@@ -8,8 +8,9 @@ final class PostController
 {
     public function index()
     {
+        var_dump(Post::all());
         view('postsList', [
-            'data' => Post::getAllData()
+            'data' => Post::all()
         ]);
     }
 }
